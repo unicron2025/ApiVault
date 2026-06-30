@@ -1,0 +1,66 @@
+.page {
+	width: min(100%, 920px);
+	z-index: 1;
+	position: relative;
+	display: grid;
+	place-items: center;
+}
+
+.card {
+	width: 100%;
+	padding: 40px;
+	border-radius: 34px;
+	border: 1px solid var(--border);
+	background: linear-gradient(180deg, rgba(10, 15, 28, 0.86), rgba(8, 12, 22, 0.82));
+	box-shadow: var(--shadow);
+	text-align: center;
+	display: grid;
+	place-items: center;
+	gap: 18px;
+}
+
+.code {
+	margin: 0;
+	font-size: clamp(4rem, 10vw, 8rem);
+	line-height: 0.9;
+	font-family: 'Fraunces', Georgia, serif;
+	letter-spacing: -0.06em;
+	color: rgba(114, 242, 193, 0.94);
+}
+
+.card h1 {
+	margin: 0;
+	font-family: 'Fraunces', Georgia, serif;
+	font-size: clamp(2rem, 4vw, 3.6rem);
+	line-height: 1;
+	max-width: 14ch;
+}
+
+.card p {
+	max-width: 60ch;
+	margin: 0;
+	color: var(--muted);
+	line-height: 1.8;
+}
+
+.actions {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+@media (max-width: 700px) {
+	.card {
+		padding: 28px 20px;
+		border-radius: 28px;
+	}
+
+	.actions {
+		width: 100%;
+	}
+
+	.actions button {
+		width: 100%;
+	}
+}

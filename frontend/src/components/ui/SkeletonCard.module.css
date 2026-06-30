@@ -1,0 +1,87 @@
+.card {
+	padding: 22px;
+	border-radius: 24px;
+	border: 1px solid var(--border);
+	background: rgba(255, 255, 255, 0.03);
+	overflow: hidden;
+}
+
+.card::before {
+	content: '';
+	display: block;
+	position: relative;
+	inset: 0;
+	margin-bottom: 12px;
+	border-radius: inherit;
+	height: 100%;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 25%, rgba(255, 255, 255, 0.08) 37%, rgba(255, 255, 255, 0.02) 63%);
+	background-size: 200% 100%;
+	animation: shimmer 1.4s linear infinite;
+	opacity: 0.7;
+}
+
+.topRow,
+.footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.topRow {
+	margin-top: -4px;
+	margin-bottom: 18px;
+}
+
+.lineLg,
+.lineMd,
+.lineSm,
+.lineXs,
+.pill,
+.lineButton {
+	border-radius: 999px;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.12) 37%, rgba(255, 255, 255, 0.04) 63%);
+	background-size: 200% 100%;
+	animation: shimmer 1.4s linear infinite;
+}
+
+.lineLg {
+	height: 22px;
+	width: 64%;
+}
+
+.pill {
+	height: 20px;
+	width: 90px;
+}
+
+.lineMd {
+	height: 14px;
+	width: 82%;
+	margin-bottom: 14px;
+}
+
+.lineSm {
+	height: 14px;
+	width: 64%;
+	margin-bottom: 10px;
+}
+
+.lineXs {
+	height: 14px;
+	width: 42%;
+	margin-bottom: 22px;
+}
+
+.lineButton {
+	height: 42px;
+	flex: 1;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}

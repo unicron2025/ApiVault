@@ -1,0 +1,19 @@
+.overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 40;
+	display: grid;
+	place-items: center;
+	padding: 20px;
+	background: rgba(4, 8, 16, 0.7);
+	backdrop-filter: blur(18px);
+}
+
+.modal {
+	max-height: min(92vh, 920px);
+	overflow: auto;
+	border-radius: 26px;
+	border: 1px solid var(--border);
+	background: linear-gradient(180deg, rgba(10, 15, 28, 0.98), rgba(8, 12, 22, 0.96));
+	box-shadow: var(--shadow);
+}

@@ -1,0 +1,50 @@
+.wrapper {
+	padding: 28px;
+	text-align: center;
+	width: min(100vw - 40px, 520px);
+}
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 6px 12px;
+	margin-bottom: 14px;
+	border-radius: 999px;
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #ffc8c8;
+	background: rgba(255, 114, 114, 0.08);
+	border: 1px solid rgba(255, 114, 114, 0.18);
+}
+
+.wrapper h2 {
+	margin: 0;
+	font-size: 1.6rem;
+	font-weight: 800;
+}
+
+.wrapper p {
+	margin: 12px 0 0;
+	color: var(--muted);
+	line-height: 1.7;
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	margin-top: 24px;
+}
+
+@media (max-width: 520px) {
+	.footer {
+		flex-direction: column-reverse;
+	}
+
+	.footer button {
+		width: 100%;
+	}
+}

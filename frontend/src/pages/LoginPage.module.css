@@ -1,0 +1,223 @@
+.page {
+	width: min(100%, 1320px);
+	display: grid;
+	grid-template-columns: 1.35fr 0.92fr;
+	gap: 24px;
+	align-items: center;
+	z-index: 1;
+	position: relative;
+}
+
+.hero,
+.card {
+	position: relative;
+	padding: 32px;
+	border-radius: 32px;
+	border: 1px solid var(--border);
+	background: linear-gradient(180deg, rgba(10, 15, 28, 0.82), rgba(8, 12, 22, 0.82));
+	backdrop-filter: blur(28px);
+	box-shadow: var(--shadow);
+}
+
+.hero::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at top right, rgba(114, 242, 193, 0.12), transparent 30%),
+		radial-gradient(circle at bottom left, rgba(124, 140, 255, 0.12), transparent 24%);
+	pointer-events: none;
+	border-radius: inherit;
+}
+
+.eyebrow,
+.cardEyebrow {
+	margin: 0 0 12px;
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--primary);
+}
+
+.hero h1 {
+	max-width: 12ch;
+	margin: 0;
+	font-family: 'Fraunces', Georgia, serif;
+	font-size: clamp(3rem, 6vw, 5.8rem);
+	line-height: 0.95;
+	letter-spacing: -0.03em;
+}
+
+.lead {
+	max-width: 68ch;
+	margin: 22px 0 0;
+	font-size: 1.04rem;
+	line-height: 1.8;
+	color: var(--muted);
+}
+
+.metrics {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+	margin-top: 26px;
+}
+
+.metrics div {
+	padding: 16px;
+	border-radius: 22px;
+	border: 1px solid rgba(148, 163, 184, 0.12);
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.metrics strong {
+	display: block;
+	font-size: 1.02rem;
+	font-weight: 800;
+}
+
+.metrics span {
+	display: block;
+	margin-top: 6px;
+	color: var(--muted);
+	font-size: 0.88rem;
+}
+
+.featureList {
+	display: grid;
+	gap: 14px;
+	margin-top: 24px;
+}
+
+.featureCard {
+	display: flex;
+	gap: 14px;
+	padding: 18px;
+	border-radius: 22px;
+	border: 1px solid rgba(148, 163, 184, 0.12);
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.featureCard svg {
+	flex: 0 0 auto;
+	font-size: 1.2rem;
+	color: var(--primary);
+	margin-top: 2px;
+}
+
+.featureCard h3,
+.cardHeader h2 {
+	margin: 0;
+	font-size: 1.1rem;
+	font-weight: 800;
+}
+
+.featureCard p,
+.cardHeader p {
+	margin: 6px 0 0;
+	color: var(--muted);
+	line-height: 1.7;
+}
+
+.card {
+	display: grid;
+	gap: 18px;
+}
+
+.cardHeader {
+	display: grid;
+	gap: 2px;
+	text-align: left;
+}
+
+.cardHeader h2 {
+	font-size: 2rem;
+	font-family: 'Fraunces', Georgia, serif;
+}
+
+.loginButtonWrap {
+	display: grid;
+	place-items: center;
+	min-height: 48px;
+}
+
+.separator {
+	position: relative;
+	text-align: center;
+	font-size: 0.85rem;
+	color: var(--muted);
+}
+
+.separator::before,
+.separator::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	width: calc(50% - 90px);
+	height: 1px;
+	background: rgba(148, 163, 184, 0.16);
+}
+
+.separator::before {
+	left: 0;
+}
+
+.separator::after {
+	right: 0;
+}
+
+.error {
+	margin: 0;
+	padding: 12px 14px;
+	border-radius: 16px;
+	border: 1px solid rgba(255, 114, 114, 0.22);
+	background: rgba(255, 114, 114, 0.08);
+	color: #ffc8c8;
+	line-height: 1.6;
+}
+
+.security {
+	display: flex;
+	gap: 12px;
+	padding: 16px;
+	border-radius: 18px;
+	border: 1px solid rgba(114, 242, 193, 0.16);
+	background: rgba(114, 242, 193, 0.06);
+	color: #cbffe9;
+	font-size: 0.92rem;
+	line-height: 1.6;
+	align-items: flex-start;
+}
+
+.security svg {
+	flex: 0 0 auto;
+	margin-top: 3px;
+	font-size: 1.05rem;
+}
+
+@media (max-width: 1080px) {
+	.page {
+		grid-template-columns: 1fr;
+	}
+
+	.hero h1 {
+		max-width: 15ch;
+	}
+}
+
+@media (max-width: 720px) {
+	.hero,
+	.card {
+		padding: 24px;
+		border-radius: 26px;
+	}
+
+	.metrics {
+		grid-template-columns: 1fr;
+	}
+
+	.separator::before,
+	.separator::after {
+		width: calc(50% - 130px);
+	}
+}

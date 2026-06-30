@@ -1,0 +1,19 @@
+.avatar,
+.fallback {
+	width: 44px;
+	height: 44px;
+	border-radius: 16px;
+	object-fit: cover;
+	flex: 0 0 auto;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fallback {
+	display: grid;
+	place-items: center;
+	background: linear-gradient(135deg, rgba(124, 140, 255, 0.2), rgba(114, 242, 193, 0.22));
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	color: var(--text);
+}

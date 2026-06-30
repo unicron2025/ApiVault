@@ -1,0 +1,71 @@
+.shell {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	padding: 24px;
+	display: grid;
+	place-items: center;
+}
+
+.shell::before,
+.shell::after,
+.blobOne,
+.blobTwo,
+.blobThree {
+	content: '';
+	position: absolute;
+	border-radius: 999px;
+	filter: blur(24px);
+	pointer-events: none;
+	animation: float 10s ease-in-out infinite;
+}
+
+.shell::before {
+	width: 520px;
+	height: 520px;
+	top: -160px;
+	right: -120px;
+	background: radial-gradient(circle, rgba(124, 140, 255, 0.32) 0%, rgba(124, 140, 255, 0.04) 68%, transparent 72%);
+}
+
+.shell::after {
+	width: 420px;
+	height: 420px;
+	left: -100px;
+	bottom: -120px;
+	background: radial-gradient(circle, rgba(61, 211, 166, 0.28) 0%, rgba(61, 211, 166, 0.04) 68%, transparent 72%);
+	animation-delay: -4s;
+}
+
+.blobOne {
+	width: 260px;
+	height: 260px;
+	top: 16%;
+	left: 10%;
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+	animation-delay: -2s;
+}
+
+.blobTwo {
+	width: 180px;
+	height: 180px;
+	bottom: 16%;
+	right: 12%;
+	background: radial-gradient(circle, rgba(248, 200, 107, 0.2) 0%, transparent 68%);
+	animation-delay: -6s;
+}
+
+.blobThree {
+	width: 140px;
+	height: 140px;
+	bottom: 28%;
+	left: 46%;
+	background: radial-gradient(circle, rgba(114, 242, 193, 0.18) 0%, transparent 68%);
+	animation-delay: -8s;
+}
+
+@media (max-width: 768px) {
+	.shell {
+		padding: 16px;
+	}
+}
