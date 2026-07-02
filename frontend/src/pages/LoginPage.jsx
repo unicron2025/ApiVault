@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { GoogleLogin } from '@react-oauth/google'
 import { motion } from 'framer-motion'
 import { FcGoogle } from 'react-icons/fc'
 import { FiShield, FiSearch, FiStar } from 'react-icons/fi'
@@ -19,9 +20,7 @@ const features = [
 export default function LoginPage() {
 	const { loginWithGoogle, authLoading, authError, setAuthError } = useAuth()
 	const navigate = useNavigate()
-	const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? ''
-	const googleInitializedRef = useRef(false)
-	const cancelTimeoutRef = useRef(null)
+	const googleButtonRef = useRef(null)
 
 	const handleSuccess = async (credentialResponse) => {
 		const credential = credentialResponse?.credential
@@ -51,56 +50,18 @@ export default function LoginPage() {
 
 	useEffect(() => {
 		setAuthError('')
-
-		if (googleInitializedRef.current) {
-			return undefined
-		}
-
-		const googleIdentity = window.google?.accounts?.id
-
-		if (!googleIdentity || !googleClientId) {
-			return undefined
-		}
-
-		googleIdentity.initialize({
-			client_id: googleClientId,
-			callback: (credentialResponse) => {
-				void handleSuccess(credentialResponse)
-			},
-			context: 'signin',
-			auto_select: false,
-			cancel_on_tap_outside: true,
-		})
-
-		googleInitializedRef.current = true
-
-		return () => {
-			if (cancelTimeoutRef.current) {
-				clearTimeout(cancelTimeoutRef.current)
-				cancelTimeoutRef.current = null
-			}
-		}
-	}, [])
+	}, [setAuthError])
 
 	const handleGoogleSignIn = () => {
-		const googleIdentity = window.google?.accounts?.id
+		const googleButton = googleButtonRef.current?.querySelector('button')
 
-		if (!googleIdentity || !googleInitializedRef.current) {
+		if (!googleButton) {
 			handleError()
 			return
 		}
 
 		setAuthError('')
-
-		if (cancelTimeoutRef.current) {
-			clearTimeout(cancelTimeoutRef.current)
-		}
-
-		googleIdentity.prompt()
-
-		cancelTimeoutRef.current = window.setTimeout(() => {
-			handleError()
-		}, 2500)
+		googleButton.click()
 	}
 
 	return (
@@ -161,6 +122,9 @@ export default function LoginPage() {
 					</div>
 
 					<div className={styles.loginButtonWrap} aria-busy={authLoading}>
+						<div ref={googleButtonRef} style={{ position: 'absolute', left: '-9999px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}>
+							<GoogleLogin onSuccess={handleSuccess} onError={handleError} />
+						</div>
 						<Button
 							type="button"
 							variant="secondary"
