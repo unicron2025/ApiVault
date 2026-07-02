@@ -5,10 +5,11 @@
 	gap: 10px;
 	border: 1px solid transparent;
 	border-radius: 16px;
-	padding: 13px 18px;
+	padding: 13px 20px;
+	font-size: 0.96rem;
 	font-weight: 700;
 	letter-spacing: 0.01em;
-	transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+	transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
 .button:disabled {
@@ -17,21 +18,21 @@
 }
 
 .primary {
-	color: #09111f;
-	background: linear-gradient(135deg, #8ef5d0 0%, #61e8b3 100%);
-	box-shadow: 0 18px 40px rgba(97, 232, 179, 0.24);
+	color: #04111b;
+	background: linear-gradient(135deg, #56e3bf 0%, #24c89f 55%, #13b691 100%);
+	box-shadow: 0 16px 36px rgba(30, 191, 153, 0.26);
 }
 
 .secondary {
 	color: var(--text);
-	background: rgba(255, 255, 255, 0.03);
+	background: rgba(15, 33, 51, 0.65);
 	border-color: var(--border);
 }
 
 .ghost {
 	color: var(--text);
-	background: rgba(255, 255, 255, 0.02);
-	border-color: rgba(255, 255, 255, 0.05);
+	background: rgba(15, 33, 51, 0.54);
+	border-color: rgba(148, 163, 184, 0.2);
 }
 
 .danger {
@@ -41,7 +42,9 @@
 }
 
 .button:hover:not(:disabled) {
-	border-color: rgba(114, 242, 193, 0.3);
+	transform: translateY(-1px);
+	border-color: rgba(69, 221, 183, 0.38);
+	box-shadow: 0 0 0 4px rgba(69, 221, 183, 0.12);
 }
 
 .icon {

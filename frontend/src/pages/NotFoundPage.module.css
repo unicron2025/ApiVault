@@ -11,7 +11,7 @@
 	padding: 40px;
 	border-radius: 34px;
 	border: 1px solid var(--border);
-	background: linear-gradient(180deg, rgba(10, 15, 28, 0.86), rgba(8, 12, 22, 0.82));
+	background: linear-gradient(180deg, rgba(8, 19, 35, 0.86), rgba(6, 15, 30, 0.84));
 	box-shadow: var(--shadow);
 	text-align: center;
 	display: grid;
@@ -23,15 +23,13 @@
 	margin: 0;
 	font-size: clamp(4rem, 10vw, 8rem);
 	line-height: 0.9;
-	font-family: 'Fraunces', Georgia, serif;
 	letter-spacing: -0.06em;
-	color: rgba(114, 242, 193, 0.94);
+	color: rgba(69, 221, 183, 0.96);
 }
 
 .card h1 {
 	margin: 0;
-	font-family: 'Fraunces', Georgia, serif;
-	font-size: clamp(2rem, 4vw, 3.6rem);
+	font-size: clamp(2rem, 4vw, 3.7rem);
 	line-height: 1;
 	max-width: 14ch;
 }
@@ -39,8 +37,9 @@
 .card p {
 	max-width: 60ch;
 	margin: 0;
+	font-size: 1rem;
 	color: var(--muted);
-	line-height: 1.8;
+	line-height: 1.72;
 }
 
 .actions {

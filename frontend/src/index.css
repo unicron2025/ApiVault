@@ -1,34 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
 	color-scheme: dark;
-	font-family: 'Manrope', system-ui, sans-serif;
+	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--font-display: 'DM Serif Display', 'Cormorant Garamond', Georgia, serif;
+	--font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	--bg: #09111f;
-	--bg-elevated: rgba(10, 15, 28, 0.72);
-	--bg-card: rgba(12, 19, 35, 0.8);
-	--surface: rgba(15, 23, 42, 0.92);
-	--surface-2: rgba(17, 24, 39, 0.94);
+	--bg: #050c18;
+	--bg-elevated: rgba(8, 19, 35, 0.74);
+	--bg-card: rgba(11, 25, 42, 0.84);
+	--surface: rgba(15, 33, 51, 0.92);
+	--surface-2: rgba(17, 39, 60, 0.94);
 	--border: rgba(148, 163, 184, 0.16);
 	--border-strong: rgba(148, 163, 184, 0.28);
-	--text: #e5eefc;
-	--muted: #94a3b8;
-	--primary: #72f2c1;
-	--primary-strong: #3dd3a6;
-	--primary-soft: rgba(114, 242, 193, 0.12);
-	--accent: #7c8cff;
+	--text: #e9f2ff;
+	--muted: #98acc3;
+	--primary: #45ddb7;
+	--primary-strong: #1ebf99;
+	--primary-soft: rgba(69, 221, 183, 0.14);
+	--accent: #27caa4;
 	--danger: #ff7272;
 	--warning: #f8c86b;
 	--shadow: 0 30px 80px rgba(2, 6, 23, 0.45);
 	background:
-		radial-gradient(circle at top left, rgba(124, 140, 255, 0.18), transparent 30%),
-		radial-gradient(circle at top right, rgba(61, 211, 166, 0.16), transparent 28%),
-		linear-gradient(180deg, #050816 0%, #09111f 55%, #060b16 100%);
+		radial-gradient(circle at top left, rgba(39, 202, 164, 0.2), transparent 34%),
+		radial-gradient(circle at top right, rgba(30, 191, 153, 0.16), transparent 32%),
+		linear-gradient(180deg, #040913 0%, #050c18 55%, #030712 100%);
 }
 
 * {
@@ -50,6 +52,17 @@ body {
 	min-width: 320px;
 	color: var(--text);
 	background: transparent;
+	font-family: var(--font-body);
+	font-size: 16px;
+	font-weight: 500;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-display);
+	letter-spacing: -0.02em;
+	text-wrap: balance;
 }
 
 body::before {
@@ -86,7 +99,7 @@ img {
 }
 
 ::selection {
-	background: rgba(114, 242, 193, 0.26);
+	background: rgba(69, 221, 183, 0.26);
 	color: #f8fafc;
 }
 
@@ -94,16 +107,29 @@ img {
 	min-height: 100vh;
 	display: grid;
 	place-items: center;
+	position: relative;
+}
+
+.route-loader::before {
+	content: '';
+	width: 64px;
+	height: 64px;
+	border-radius: 16px;
+	background: url('/apivault.png') center / cover no-repeat;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	box-shadow: 0 20px 42px rgba(16, 185, 129, 0.22);
+	animation: float 1.6s ease-in-out infinite;
 }
 
 .route-loader::after {
 	content: '';
-	width: 42px;
-	height: 42px;
+	position: absolute;
+	width: 86px;
+	height: 86px;
 	border-radius: 50%;
-	border: 3px solid rgba(148, 163, 184, 0.22);
+	border: 3px solid rgba(148, 163, 184, 0.2);
 	border-top-color: var(--primary);
-	animation: spin 0.8s linear infinite;
+	animation: spin 1s linear infinite;
 }
 
 @keyframes spin {

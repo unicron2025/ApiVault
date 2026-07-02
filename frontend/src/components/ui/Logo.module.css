@@ -1,41 +1,40 @@
 .logo {
 	display: inline-flex;
 	align-items: center;
-	gap: 12px;
+	gap: 10px;
 }
 
 .mark {
-	width: 44px;
-	height: 44px;
-	border-radius: 15px;
-	background: linear-gradient(135deg, rgba(124, 140, 255, 0.24), rgba(114, 242, 193, 0.26));
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	display: grid;
-	place-items: center;
-	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
-}
-
-.mark span {
-	width: 18px;
-	height: 18px;
-	border-radius: 7px;
-	background: linear-gradient(135deg, #eef4ff 0%, #72f2c1 100%);
-	box-shadow: inset 0 0 0 5px rgba(9, 17, 31, 0.28);
+	width: var(--logo-size, 44px);
+	height: var(--logo-size, 44px);
+	border-radius: 12px;
+	object-fit: cover;
+	object-position: center;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	box-shadow: 0 14px 30px rgba(16, 185, 129, 0.2);
+	transform: scale(1.06);
 }
 
 .text {
 	display: grid;
-	gap: 2px;
+	gap: 3px;
 }
 
 .text strong {
-	font-family: 'Fraunces', Georgia, serif;
-	font-size: 1.3rem;
-	line-height: 1;
-	letter-spacing: 0.01em;
+	font-family: var(--font-display);
+	font-size: clamp(1.25rem, 1rem + 0.8vw, 1.9rem);
+	line-height: 0.93;
+	letter-spacing: -0.02em;
 }
 
 .text span {
-	font-size: 0.78rem;
+	font-size: 0.84rem;
+	line-height: 1.35;
 	color: var(--muted);
+}
+
+@media (max-width: 680px) {
+	.text span {
+		display: none;
+	}
 }

@@ -3,17 +3,17 @@
 	align-items: center;
 	gap: 12px;
 	flex: 1 1 340px;
-	padding: 0 16px;
+	padding: 0 18px;
 	min-height: 52px;
 	border-radius: 16px;
 	border: 1px solid var(--border);
-	background: rgba(255, 255, 255, 0.03);
+	background: rgba(15, 33, 51, 0.65);
 	color: var(--muted);
 }
 
 .search:focus-within {
-	border-color: rgba(114, 242, 193, 0.4);
-	box-shadow: 0 0 0 4px rgba(114, 242, 193, 0.08);
+	border-color: rgba(69, 221, 183, 0.4);
+	box-shadow: 0 0 0 4px rgba(69, 221, 183, 0.11);
 }
 
 .search input {
@@ -24,6 +24,7 @@
 	color: var(--text);
 	outline: none;
 	padding: 14px 0;
+	font-size: 1rem;
 }
 
 .search input::placeholder {

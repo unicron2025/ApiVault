@@ -2,9 +2,16 @@
 	position: relative;
 	min-height: 100vh;
 	overflow: hidden;
-	padding: 24px;
+	padding: clamp(14px, 2vh, 24px) 24px;
 	display: grid;
 	place-items: center;
+	background-image:
+		radial-gradient(circle at 72% 36%, rgba(69, 221, 183, 0.09), transparent 40%),
+		radial-gradient(circle at 22% 72%, rgba(30, 191, 153, 0.08), transparent 44%),
+		linear-gradient(rgba(160, 178, 199, 0.04) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(160, 178, 199, 0.04) 1px, transparent 1px);
+	background-size: auto, auto, 84px 84px, 84px 84px;
+	background-position: center, center, center, center;
 }
 
 .shell::before,
@@ -23,17 +30,17 @@
 .shell::before {
 	width: 520px;
 	height: 520px;
-	top: -160px;
-	right: -120px;
-	background: radial-gradient(circle, rgba(124, 140, 255, 0.32) 0%, rgba(124, 140, 255, 0.04) 68%, transparent 72%);
+	top: -120px;
+	right: -80px;
+	background: radial-gradient(circle, rgba(39, 202, 164, 0.3) 0%, rgba(39, 202, 164, 0.04) 68%, transparent 72%);
 }
 
 .shell::after {
 	width: 420px;
 	height: 420px;
-	left: -100px;
-	bottom: -120px;
-	background: radial-gradient(circle, rgba(61, 211, 166, 0.28) 0%, rgba(61, 211, 166, 0.04) 68%, transparent 72%);
+	left: -90px;
+	bottom: -110px;
+	background: radial-gradient(circle, rgba(30, 191, 153, 0.26) 0%, rgba(30, 191, 153, 0.04) 68%, transparent 72%);
 	animation-delay: -4s;
 }
 
@@ -51,7 +58,7 @@
 	height: 180px;
 	bottom: 16%;
 	right: 12%;
-	background: radial-gradient(circle, rgba(248, 200, 107, 0.2) 0%, transparent 68%);
+	background: radial-gradient(circle, rgba(69, 221, 183, 0.13) 0%, transparent 68%);
 	animation-delay: -6s;
 }
 
@@ -60,7 +67,7 @@
 	height: 140px;
 	bottom: 28%;
 	left: 46%;
-	background: radial-gradient(circle, rgba(114, 242, 193, 0.18) 0%, transparent 68%);
+	background: radial-gradient(circle, rgba(69, 221, 183, 0.2) 0%, transparent 68%);
 	animation-delay: -8s;
 }
 

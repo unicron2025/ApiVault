@@ -11,7 +11,7 @@ export default function NotFoundPage() {
 		<AuthLayout>
 			<div className={styles.page}>
 				<div className={styles.card}>
-					<Logo />
+					<Logo size={56} subtitle="Secure API command center" />
 					<p className={styles.code}>404</p>
 					<h1>The page drifted out of the vault.</h1>
 					<p>

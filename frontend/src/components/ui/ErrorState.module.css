@@ -5,7 +5,7 @@
 	padding: 44px 24px;
 	border-radius: 28px;
 	border: 1px solid rgba(255, 114, 114, 0.26);
-	background: linear-gradient(180deg, rgba(255, 114, 114, 0.08), rgba(255, 255, 255, 0.02));
+	background: linear-gradient(180deg, rgba(255, 114, 114, 0.1), rgba(15, 33, 51, 0.62));
 	text-align: center;
 }
 
@@ -23,12 +23,14 @@
 
 .errorCard h3 {
 	margin: 0;
-	font-size: 1.3rem;
+	font-size: clamp(1.3rem, 1.08rem + 1vw, 1.55rem);
 	font-weight: 800;
 }
 
 .errorCard p {
 	max-width: 54ch;
 	margin: 0;
+	font-size: 1rem;
+	line-height: 1.68;
 	color: var(--muted);
 }

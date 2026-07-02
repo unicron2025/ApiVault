@@ -11,7 +11,7 @@
 	padding: 18px 22px;
 	border: 1px solid var(--border);
 	border-radius: 24px;
-	background: rgba(8, 13, 24, 0.74);
+	background: rgba(8, 19, 35, 0.74);
 	backdrop-filter: blur(24px);
 	box-shadow: var(--shadow);
 }
@@ -34,8 +34,8 @@
 
 .profileMeta {
 	display: grid;
-	gap: 1px;
-	font-size: 0.9rem;
+	gap: 2px;
+	font-size: 0.94rem;
 }
 
 .profileMeta strong {
@@ -44,7 +44,7 @@
 
 .profileMeta span {
 	color: var(--muted);
-	font-size: 0.82rem;
+	font-size: 0.84rem;
 }
 
 .logout {
@@ -56,11 +56,13 @@
 	border: 1px solid var(--border);
 	background: rgba(255, 255, 255, 0.03);
 	color: var(--text);
+	transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .logout:hover {
-	border-color: rgba(114, 242, 193, 0.3);
-	background: rgba(114, 242, 193, 0.08);
+	border-color: rgba(69, 221, 183, 0.38);
+	background: rgba(69, 221, 183, 0.12);
+	box-shadow: 0 0 0 4px rgba(69, 221, 183, 0.12);
 }
 
 .content {

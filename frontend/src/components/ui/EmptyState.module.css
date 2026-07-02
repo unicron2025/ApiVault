@@ -6,14 +6,14 @@
 	text-align: center;
 	border: 1px solid var(--border);
 	border-radius: 28px;
-	background: rgba(255, 255, 255, 0.02);
+	background: rgba(15, 33, 51, 0.62);
 }
 
 .illustration {
 	width: 96px;
 	height: 96px;
 	border-radius: 30px;
-	background: linear-gradient(135deg, rgba(124, 140, 255, 0.12), rgba(114, 242, 193, 0.16));
+	background: linear-gradient(135deg, rgba(39, 202, 164, 0.14), rgba(30, 191, 153, 0.2));
 	display: grid;
 	place-items: center;
 	position: relative;
@@ -41,17 +41,19 @@
 	width: 12px;
 	height: 12px;
 	background: var(--primary);
-	box-shadow: 0 0 0 16px rgba(114, 242, 193, 0.08);
+	box-shadow: 0 0 0 16px rgba(69, 221, 183, 0.1);
 }
 
 .empty h3 {
 	margin: 0;
-	font-size: 1.35rem;
+	font-size: clamp(1.28rem, 1.08rem + 1vw, 1.5rem);
 	font-weight: 800;
 }
 
 .empty p {
 	max-width: 58ch;
 	margin: 0;
+	font-size: 1rem;
+	line-height: 1.68;
 	color: var(--muted);
 }

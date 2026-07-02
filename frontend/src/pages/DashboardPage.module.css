@@ -8,16 +8,16 @@
 	grid-template-columns: 1.1fr auto;
 	gap: 20px;
 	align-items: end;
-	padding: 28px;
+	padding: 30px;
 	border-radius: 30px;
 	border: 1px solid var(--border);
-	background: linear-gradient(180deg, rgba(10, 15, 28, 0.82), rgba(8, 12, 22, 0.76));
+	background: linear-gradient(180deg, rgba(8, 19, 35, 0.84), rgba(6, 15, 30, 0.82));
 	box-shadow: var(--shadow);
 }
 
 .eyebrow {
 	margin: 0 0 10px;
-	font-size: 0.76rem;
+	font-size: 0.84rem;
 	font-weight: 800;
 	letter-spacing: 0.18em;
 	text-transform: uppercase;
@@ -26,17 +26,17 @@
 
 .hero h1 {
 	margin: 0;
-	font-family: 'Fraunces', Georgia, serif;
-	font-size: clamp(2rem, 4vw, 3.3rem);
-	line-height: 1;
-	letter-spacing: -0.03em;
+	font-size: clamp(2rem, 3.2vw, 2.5rem);
+	line-height: 1.02;
+	letter-spacing: -0.02em;
 }
 
 .hero p {
 	max-width: 64ch;
 	margin: 14px 0 0;
+	font-size: 1rem;
 	color: var(--muted);
-	line-height: 1.8;
+	line-height: 1.72;
 }
 
 .stats {
@@ -50,7 +50,7 @@
 	padding: 16px;
 	border-radius: 22px;
 	border: 1px solid rgba(148, 163, 184, 0.12);
-	background: rgba(255, 255, 255, 0.02);
+	background: rgba(255, 255, 255, 0.03);
 	text-align: center;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .stats span {
-	font-size: 0.84rem;
+	font-size: 0.82rem;
 	color: var(--muted);
 }
 

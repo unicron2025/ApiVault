@@ -44,7 +44,7 @@ export default function LoginPage() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.4, ease: 'easeOut' }}
 				>
-					<Logo />
+					<Logo size={64} subtitle="Secure API command center" />
 					<p className={styles.eyebrow}>Developer API vault</p>
 					<h1>Store the APIs you trust in a calm, high-end workspace.</h1>
 					<p className={styles.lead}>

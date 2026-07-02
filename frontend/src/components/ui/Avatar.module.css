@@ -12,7 +12,7 @@
 .fallback {
 	display: grid;
 	place-items: center;
-	background: linear-gradient(135deg, rgba(124, 140, 255, 0.2), rgba(114, 242, 193, 0.22));
+	background: linear-gradient(135deg, rgba(39, 202, 164, 0.26), rgba(30, 191, 153, 0.3));
 	font-weight: 800;
 	letter-spacing: 0.04em;
 	color: var(--text);

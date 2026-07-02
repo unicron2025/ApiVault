@@ -19,7 +19,7 @@ export default function AppLayout({ children, onCreate }) {
 	return (
 		<div className={styles.shell}>
 			<header className={styles.navbar}>
-				<Logo />
+				<Logo size={44} subtitle="Secure API command center" />
 				<div className={styles.actions}>
 					<Button variant="ghost" onClick={onCreate} icon={<span className={styles.plus}>+</span>}>
 						Create API

@@ -5,7 +5,7 @@
 	padding: 22px;
 	border-radius: 26px;
 	border: 1px solid var(--border);
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+	background: linear-gradient(180deg, rgba(15, 33, 51, 0.7), rgba(11, 25, 42, 0.76));
 	box-shadow: 0 20px 60px rgba(2, 6, 23, 0.22);
 	backdrop-filter: blur(18px);
 	overflow: hidden;
@@ -14,15 +14,15 @@
 
 .card:hover {
 	transform: translateY(-4px);
-	border-color: rgba(114, 242, 193, 0.22);
-	box-shadow: 0 28px 60px rgba(2, 6, 23, 0.32);
+	border-color: rgba(69, 221, 183, 0.34);
+	box-shadow: 0 28px 60px rgba(2, 6, 23, 0.34), 0 0 0 3px rgba(69, 221, 183, 0.08);
 }
 
 .favourite::before {
 	content: '';
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(135deg, rgba(114, 242, 193, 0.06), transparent 34%);
+	background: linear-gradient(135deg, rgba(69, 221, 183, 0.08), transparent 34%);
 	pointer-events: none;
 }
 
@@ -41,9 +41,10 @@
 
 .titleRow h3 {
 	margin: 0;
-	font-size: 1.12rem;
+	font-size: clamp(1.25rem, 1.02rem + 1vw, 1.5rem);
 	font-weight: 800;
-	letter-spacing: 0.01em;
+	line-height: 1.14;
+	letter-spacing: -0.01em;
 }
 
 .badge {
@@ -51,18 +52,19 @@
 	align-items: center;
 	padding: 6px 10px;
 	border-radius: 999px;
-	font-size: 0.72rem;
+	font-size: 0.82rem;
 	font-weight: 800;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	color: #d8ffe9;
-	background: rgba(61, 211, 166, 0.12);
-	border: 1px solid rgba(61, 211, 166, 0.18);
+	background: rgba(30, 191, 153, 0.14);
+	border: 1px solid rgba(30, 191, 153, 0.2);
 }
 
 .description {
 	margin: 10px 0 0;
 	color: var(--muted);
+	font-size: 1rem;
 	line-height: 1.68;
 	white-space: pre-wrap;
 }
@@ -93,7 +95,7 @@
 .meta {
 	display: grid;
 	gap: 6px;
-	font-size: 0.88rem;
+	font-size: 0.86rem;
 	color: var(--muted);
 	padding-top: 4px;
 	border-top: 1px solid rgba(148, 163, 184, 0.12);
