@@ -21,30 +21,37 @@ export default function LoginPage() {
 	const { loginWithGoogle, authLoading, authError, setAuthError } = useAuth()
 	const navigate = useNavigate()
 	const googleButtonRef = useRef(null)
+	const loginAttemptRef = useRef(false)
+	const loginSucceededRef = useRef(false)
 
 	const handleSuccess = async (credentialResponse) => {
 		const credential = credentialResponse?.credential
 
 		if (!credential) {
 			setAuthError('Google did not return a credential. Please try again.')
+			loginAttemptRef.current = false
 			return
 		}
 
-		if (cancelTimeoutRef.current) {
-			clearTimeout(cancelTimeoutRef.current)
-			cancelTimeoutRef.current = null
-		}
+		loginSucceededRef.current = true
+		loginAttemptRef.current = false
 
 		try {
 			setAuthError('')
 			await loginWithGoogle(credential)
 			navigate('/dashboard', { replace: true })
 		} catch (error) {
+			loginSucceededRef.current = false
 			setAuthError(error?.response?.data?.message || 'Failed to sign in. Please try again.')
 		}
 	}
 
 	const handleError = () => {
+		if (!loginAttemptRef.current || loginSucceededRef.current) {
+			return
+		}
+
+		loginAttemptRef.current = false
 		setAuthError('Google sign-in was cancelled. Please try again.')
 	}
 
@@ -60,6 +67,8 @@ export default function LoginPage() {
 			return
 		}
 
+		loginAttemptRef.current = true
+		loginSucceededRef.current = false
 		setAuthError('')
 		googleButton.click()
 	}
