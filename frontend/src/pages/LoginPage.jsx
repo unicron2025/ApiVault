@@ -1,5 +1,5 @@
-import { GoogleLogin } from '@react-oauth/google'
 import { motion } from 'framer-motion'
+import { FcGoogle } from 'react-icons/fc'
 import { FiShield, FiSearch, FiStar } from 'react-icons/fi'
 import { useNavigate } from 'react-router-dom'
 import AuthLayout from '../layouts/AuthLayout.jsx'
@@ -18,6 +18,7 @@ const features = [
 export default function LoginPage() {
 	const { loginWithGoogle, authLoading, authError, setAuthError } = useAuth()
 	const navigate = useNavigate()
+	const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? ''
 
 	const handleSuccess = async (credentialResponse) => {
 		const credential = credentialResponse?.credential
@@ -33,6 +34,38 @@ export default function LoginPage() {
 
 	const handleError = () => {
 		setAuthError('Google sign-in was cancelled. Please try again.')
+	}
+
+	const handleGoogleSignIn = () => {
+		const googleIdentity = window.google?.accounts?.id
+
+		if (!googleIdentity || !googleClientId) {
+			handleError()
+			return
+		}
+
+		googleIdentity.initialize({
+			client_id: googleClientId,
+			callback: async (credentialResponse) => {
+				const credential = credentialResponse?.credential
+
+				if (!credential) {
+					handleError()
+					return
+				}
+
+				await handleSuccess({ credential })
+			},
+			context: 'signin',
+			auto_select: false,
+			cancel_on_tap_outside: true,
+		})
+
+		googleIdentity.prompt((notification) => {
+			if (notification.isNotDisplayed?.() || notification.isSkippedMoment?.() || notification.isDismissedMoment?.()) {
+				handleError()
+			}
+		})
 	}
 
 	return (
@@ -93,7 +126,16 @@ export default function LoginPage() {
 					</div>
 
 					<div className={styles.loginButtonWrap} aria-busy={authLoading}>
-						<GoogleLogin onSuccess={handleSuccess} onError={handleError} theme="filled_black" shape="pill" text="continue_with" />
+						<Button
+							type="button"
+							variant="secondary"
+							className={styles.googleButton}
+							icon={<FcGoogle className={styles.googleIcon} />}
+							onClick={handleGoogleSignIn}
+							aria-label="Continue with Google"
+						>
+							Continue with Google
+						</Button>
 					</div>
 
 					{authError ? <p className={styles.error}>{toErrorMessage(authError)}</p> : null}
