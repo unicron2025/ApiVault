@@ -96,12 +96,6 @@ export default function LoginPage() {
 						<GoogleLogin onSuccess={handleSuccess} onError={handleError} width="100%" theme="filled_black" shape="pill" text="continue_with" />
 					</div>
 
-					<div className={styles.separator}>or use the premium dashboard after sign-in</div>
-
-					<Button variant="secondary" onClick={() => navigate('/dashboard')}>
-						Open dashboard shell
-					</Button>
-
 					{authError ? <p className={styles.error}>{toErrorMessage(authError)}</p> : null}
 
 					<div className={styles.security}>
