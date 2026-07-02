@@ -1,12 +1,9 @@
-import { useEffect, useRef } from 'react'
 import { GoogleLogin } from '@react-oauth/google'
 import { motion } from 'framer-motion'
-import { FcGoogle } from 'react-icons/fc'
 import { FiShield, FiSearch, FiStar } from 'react-icons/fi'
 import { useNavigate } from 'react-router-dom'
 import AuthLayout from '../layouts/AuthLayout.jsx'
 import Logo from '../components/ui/Logo.jsx'
-import Button from '../components/ui/Button.jsx'
 import { useAuth } from '../hooks/useAuth.js'
 import { toErrorMessage } from '../utils/formatters.js'
 import styles from './LoginPage.module.css'
@@ -20,57 +17,26 @@ const features = [
 export default function LoginPage() {
 	const { loginWithGoogle, authLoading, authError, setAuthError } = useAuth()
 	const navigate = useNavigate()
-	const googleButtonRef = useRef(null)
-	const loginAttemptRef = useRef(false)
-	const loginSucceededRef = useRef(false)
 
 	const handleSuccess = async (credentialResponse) => {
 		const credential = credentialResponse?.credential
 
 		if (!credential) {
 			setAuthError('Google did not return a credential. Please try again.')
-			loginAttemptRef.current = false
 			return
 		}
-
-		loginSucceededRef.current = true
-		loginAttemptRef.current = false
 
 		try {
 			setAuthError('')
 			await loginWithGoogle(credential)
 			navigate('/dashboard', { replace: true })
 		} catch (error) {
-			loginSucceededRef.current = false
 			setAuthError(error?.response?.data?.message || 'Failed to sign in. Please try again.')
 		}
 	}
 
 	const handleError = () => {
-		if (!loginAttemptRef.current || loginSucceededRef.current) {
-			return
-		}
-
-		loginAttemptRef.current = false
-		setAuthError('Google sign-in was cancelled. Please try again.')
-	}
-
-	useEffect(() => {
-		setAuthError('')
-	}, [setAuthError])
-
-	const handleGoogleSignIn = () => {
-		const googleButton = googleButtonRef.current?.querySelector('button')
-
-		if (!googleButton) {
-			handleError()
-			return
-		}
-
-		loginAttemptRef.current = true
-		loginSucceededRef.current = false
-		setAuthError('')
-		googleButton.click()
+		setAuthError('Google sign-in failed. Please try again.')
 	}
 
 	return (
@@ -131,19 +97,14 @@ export default function LoginPage() {
 					</div>
 
 					<div className={styles.loginButtonWrap} aria-busy={authLoading}>
-						<div ref={googleButtonRef} style={{ position: 'absolute', left: '-9999px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}>
-							<GoogleLogin onSuccess={handleSuccess} onError={handleError} />
-						</div>
-						<Button
-							type="button"
-							variant="secondary"
-							className={styles.googleButton}
-							icon={<FcGoogle className={styles.googleIcon} />}
-							onClick={handleGoogleSignIn}
-							aria-label="Continue with Google"
-						>
-							Continue with Google
-						</Button>
+						<GoogleLogin
+							onSuccess={handleSuccess}
+							onError={handleError}
+							theme="filled_black"
+							shape="pill"
+							text="continue_with"
+							logo_alignment="left"
+						/>
 					</div>
 
 					{authError ? <p className={styles.error}>{toErrorMessage(authError)}</p> : null}
