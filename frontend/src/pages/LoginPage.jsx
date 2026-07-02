@@ -93,7 +93,7 @@ export default function LoginPage() {
 					</div>
 
 					<div className={styles.loginButtonWrap} aria-busy={authLoading}>
-						<GoogleLogin onSuccess={handleSuccess} onError={handleError} width="100%" theme="filled_black" shape="pill" text="continue_with" />
+						<GoogleLogin onSuccess={handleSuccess} onError={handleError} theme="filled_black" shape="pill" text="continue_with" />
 					</div>
 
 					{authError ? <p className={styles.error}>{toErrorMessage(authError)}</p> : null}
